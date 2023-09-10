@@ -8,3 +8,4 @@ int WriteFile(const char *file, void *buf, int size);
 
 void CopyFileAndUpdateUi(char* src, char* dst);
 void CreateDirAndUpdateUi(char* dir);
+size_t CountTree(const char* src);

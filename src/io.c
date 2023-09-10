@@ -101,3 +101,40 @@ void CopyTree(const char* src, const char* dst) {
 	free(srcEnt);
 	free(dstEnt);
 }
+
+size_t CountTree(const char* src) {
+	size_t count = 0;
+	SceUID dfd = sceIoDopen(src);	
+	
+	char* srcEnt = malloc(MAX_PATH);
+	memset(srcEnt, 0x00, MAX_PATH);
+	
+	
+	int dir_read_ret = 0;
+	SceIoDirent* dir = malloc(sizeof(SceIoDirent));
+	do{
+		memset(dir, 0x00, sizeof(SceIoDirent));
+		
+		dir_read_ret = sceIoDread(dfd, dir);
+		
+		snprintf(srcEnt, MAX_PATH, "%s/%s", src, dir->d_name);
+		
+		if(SCE_S_ISDIR(dir->d_stat.st_mode)) {
+			count++;
+			count += CountTree(srcEnt);
+		}
+		else{
+			count++;
+		}
+		
+		
+	} while(dir_read_ret > 0);
+	
+	
+	free(dir);
+	sceIoDclose(dfd);
+	
+	free(srcEnt);
+	
+	return count;
+}

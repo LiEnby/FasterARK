@@ -4,14 +4,26 @@
 #include <string.h>
 #include <stdio.h>
 #include <math.h>
+#include "install.h"
+#include "io.h"
 
-int progress = 0;
-const int totalProgress = 42; // this is like how many times updateUi is called ..
+static int progress = 0;
+static int totalProgress = 0; 
 
 vita2d_pgf *pgf;
 vita2d_pvf *pvf;
 
+// calculate the total progress
+void countProgress() {
+	totalProgress = 6; // Copy EBOOT.PBP, PBOOT.PBP, GAME.RIF
+					   // PROMOTE, HASH EBOOT, GEN EBOOT SIGNATURE steps
+						   
+	totalProgress += GetTotalNeededDirectories(); // Directories required to be created.
+	totalProgress += CountTree("app0:save"); // Total number of files / dirs in ARK4 savedata.
+}
+
 void uiInit() {
+	countProgress();
 	vita2d_init();
 	vita2d_set_clear_color(RGBA8(0x00, 0x00, 0x00, 0xFF));
 	pgf = vita2d_load_default_pgf();
@@ -32,14 +44,15 @@ void drawProgress() {
 	int end = 900;
 	int start = 60;
 	int y = 300;
-	int percent = (int)floor(((float)progress / (float)totalProgress) * 840.0);
+	int barPx = (int)floor(((float)progress / (float)totalProgress) * (float)(end - start));
+	int percent = (int)floor(((float)progress / (float)totalProgress) * 100.0);
 	char percentText[0x100];
 	
 	vita2d_draw_line(start, y, end, y, RGBA8(128,128,128,255));
-	vita2d_draw_line(start, y, start + percent, y, RGBA8(0,255,0,255));
+	vita2d_draw_line(start, y, start + barPx, y, RGBA8(0,255,0,255));
 	
-	snprintf(percentText, sizeof(percentText), "%i%%", progress);
-	drawTextCenter(320, percentText);
+	snprintf(percentText, sizeof(percentText), "%i%% (%i/%i)", percent, progress, totalProgress);
+	drawTextCenter(330, percentText);
 }
 
 void endDraw() {

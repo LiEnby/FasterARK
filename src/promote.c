@@ -31,37 +31,31 @@ int promoteCma(const char *path, const char *titleid, int type) {
 
   res = loadScePaf();
 	if (res < 0) {
-		sceClibPrintf("loadScePaf: %x\n", res);
 		return res;
 	}
 
   res = sceSysmoduleLoadModuleInternal(SCE_SYSMODULE_INTERNAL_PROMOTER_UTIL);
 	if (res < 0) {
-		sceClibPrintf("sceSysmoduleLoadModuleInternal: %x\n", res);
 		return res;
 	}
 
   res = scePromoterUtilityInit();
 	if (res < 0) {
-		sceClibPrintf("scePromoterUtilityInit: %x\n", res);
 		return res;
 	}
 
   res = scePromoterUtilityPromoteImport(&promoteArgs);
 	if (res < 0) {
-		sceClibPrintf("scePromoterUtilityPromoteImport: %x\n", res);
 		return res;
 	}
 
   res = scePromoterUtilityExit();
 	if (res < 0) {
-		sceClibPrintf("scePromoterUtilityExit: %x\n", res);
 		return res;
 	}
 
   res = sceSysmoduleUnloadModuleInternal(SCE_SYSMODULE_INTERNAL_PROMOTER_UTIL);
 	if (res < 0) {
-		sceClibPrintf("sceSysmoduleUnloadModuleInternal: %x\n", res);
 		return res;
 	}
 
@@ -69,7 +63,6 @@ int promoteCma(const char *path, const char *titleid, int type) {
   res = unloadScePaf();
   if (res < 0)
 	if (res < 0) {
-		sceClibPrintf("unloadScePaf: %x\n", res);
 		return res;
 	}
 

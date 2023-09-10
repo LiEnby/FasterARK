@@ -31,17 +31,16 @@ link_directories(
 )
 
 add_executable(${PROJECT_NAME}  
-  src/main.c
   src/ui.c
   src/install.c
   src/io.c
   src/promote.c
   src/pbp.c
   src/sha256
+  src/main.c
 )
 
 target_link_libraries(${PROJECT_NAME}
-	
 	vita2d
 	z
 	c

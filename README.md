@@ -1,17 +1,19 @@
 # FasterARK
 a new tool install ARK-4 on PSVita, 
 
-== 
+== Featuers ==
 
-- this is faster than the previous FastARK tool by OneLUA, 
+- Simple PS3-Like user interface
 
-- does not rely on including a copyirighted game files,
+- Faster than the previous FastARK tool by OneLUA.
 
-- does not require any legitimate "base game" to be installed.
+- Does not include a game ROM or files.
 
-- does not require a reboot
+- Does not require any legitimate "base game" to be installed.
+
+- Does not require a reboot
   
-- works without background download trick
+- Bubble installed properly with ScePromote, not using background download trick
 
 == 
 

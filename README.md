@@ -1,5 +1,13 @@
 # FasterARK
-a new Faster tool install ARK-4 on PSVita, with no reboot required.
+a new tool install ARK-4 on PSVita, 
+
+== 
+
+this is faster than FastARK, 
+does not rely on including a copyirighted game files,
+and does not require any legitimate "base game" to be installed.
+
+and it works without rebooting, or messing with background download files.
 
 == 
 

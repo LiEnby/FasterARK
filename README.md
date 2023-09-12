@@ -1,13 +1,11 @@
 # FasterARK
 a new tool install ARK-4 on PSVita, 
 
-== Featuers ==
-
-- Simple PS3-Like user interface
+== 
 
 - Faster than the previous FastARK tool by OneLUA.
 
-- Does not include a game ROM or files.
+- Does not include copyrighted game ROM or files.
 
 - Does not require any legitimate "base game" to be installed.
 

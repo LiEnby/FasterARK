@@ -11,7 +11,7 @@ a new tool install ARK-4 on PSVita,
 
 - Does not require a reboot
   
-- Bubble installed "properly" with ScePromote, not using background download trick
+- Bubble installed directly with ScePromote, not using background download trick
 
 == 
 

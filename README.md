@@ -3,11 +3,15 @@ a new tool install ARK-4 on PSVita,
 
 == 
 
-this is faster than FastARK, 
-does not rely on including a copyirighted game files,
-and does not require any legitimate "base game" to be installed.
+- this is faster than the previous FastARK tool by OneLUA, 
 
-and it works without rebooting, or messing with background download files.
+- does not rely on including a copyirighted game files,
+
+- does not require any legitimate "base game" to be installed.
+
+- does not require a reboot
+  
+- works without background download trick
 
 == 
 
